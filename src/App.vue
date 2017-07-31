@@ -1,7 +1,7 @@
 <template>
   <div>
     <img src="./assets/logo.png">
-    大大大滴滴答答多
+    大大大滴滴答答多app
   </div>
 </template>
 

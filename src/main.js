@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import App from './App'
 import VueRouter from 'vue-router';
 import routes from './router'
 import store from './vuex'
@@ -30,7 +29,7 @@ const scrollBehavior = (to, from, savedPosition) => {
 };
 
 const router = new VueRouter({
-  'linkActiveClass': 'active',
+  // 'linkActiveClass': 'active',
   routes,
   scrollBehavior
 });

@@ -1,8 +1,8 @@
-import Hello from '@/components/Hello'
+import Hello from '@/components/hello.vue'
 
 export default [
     {
-      path: '/',
+      path: '/hello',
       name: 'Hello',
       component: Hello
     }
