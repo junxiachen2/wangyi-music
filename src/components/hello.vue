@@ -1,22 +1,17 @@
 <template>
     <div>
-        <img src="./../assets/logo.png">
-        hello hello
-        <toast ref="toast"></toast>
-        <button @click="showToast">show Toast</button>
+        <find></find>
     </div>
 </template>
 
 <script>
-    import Toast from './toast.vue'
+    import Find from './../views/find/find.vue'
     export default{
         components: {
-            Toast
+            Find
         },
         methods: {
-            showToast(){
-                this.$refs.toast.show('出错啦~~')
-            }
+
         }
     }
 </script>
