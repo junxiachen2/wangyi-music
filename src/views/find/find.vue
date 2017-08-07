@@ -15,6 +15,23 @@
              {{item}}
            </tab-item>
       </tab>
+      <swiper v-model="index" height="100%" :show-dots="false" class="swiper-container" style="width: 100%;height: 100%;padding-bottom: 90px;background: #eef2f1;">
+        <swiper-item :key="1">
+          <div class="tab-swiper vux-center">
+            <div>11111111</div>
+          </div>
+        </swiper-item>
+        <swiper-item :key="2">
+          <div class="tab-swiper vux-center">
+          2222222
+          </div>
+        </swiper-item>
+        <swiper-item :key="3">
+          <div class="tab-swiper vux-center">
+          3333333333
+          </div>
+        </swiper-item>
+      </swiper>
     </div>
   </transition>
 </template>
