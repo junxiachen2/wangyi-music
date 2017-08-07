@@ -57,6 +57,6 @@
     }
   }
 </script>
-<style>
-
+<style lang="stylus" rel="stylesheet/stylus" scoped>
+  @import 'find.styl';
 </style>
