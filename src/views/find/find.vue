@@ -18,7 +18,7 @@
       <swiper v-model="index" height="100%" :show-dots="false" class="swiper-container" style="width: 100%;height: 100%;padding-bottom: 90px;background: #eef2f1;">
         <swiper-item :key="1">
           <div class="tab-swiper vux-center">
-            <div>11111111</div>
+            <v-recommend></v-recommend>
           </div>
         </swiper-item>
         <swiper-item :key="2">
@@ -38,6 +38,7 @@
 <script>
   import {Tab, TabItem} from 'vux/src/components/Tab'
   import {Swiper, SwiperItem} from 'vux/src/components/Swiper'
+  import vRecommend from './recommend/recommend';
 
   const list = () => ['个性推荐', '歌单', '排行榜'];
   export default{
@@ -46,7 +47,8 @@
       Tab,
       TabItem,
       Swiper,
-      SwiperItem
+      SwiperItem,
+      vRecommend
     },
     data(){
       return {
