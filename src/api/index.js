@@ -3,10 +3,13 @@
  */
 import axios from 'axios';
 
-import {PersonalizedResource} from './resource'
+import {PersonalizedResource,PrivatecontentResource} from './resource'
 
 export default{
   getPersonalized(){
     return axios.get(PersonalizedResource)
+  },
+  getPrivatecontent(){
+    return axios.get(PrivatecontentResource)
   }
 }
