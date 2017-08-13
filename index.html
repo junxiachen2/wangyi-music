@@ -53,7 +53,10 @@
 </head>
 <body>
 <div id="app">
-  <router-view></router-view>
+  <keep-alive>
+    <router-view v-if="router.meta.keepAlive"></router-view>
+  </keep-alive>
+  <router-view v-if="!router.meta.keepAlive"></router-view>
 </div>
 
 </body>

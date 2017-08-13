@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import routes from './router'
 import store from './vuex'
 import VueLazyload from 'vue-lazyload';  // 引入图片懒加载模块
+import App from './App';
 
 Vue.use(VueRouter);
 
@@ -29,14 +30,15 @@ const scrollBehavior = (to, from, savedPosition) => {
 };
 
 const router = new VueRouter({
-  // 'linkActiveClass': 'active',
+  'linkActiveClass': 'active',
   routes,
   scrollBehavior
 });
 
 const routerApp = new Vue({
   router,
-  store
+  store,
+  render: h => h(App)
 }).$mount('#app');
 
 export default routerApp;

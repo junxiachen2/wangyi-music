@@ -1,7 +1,9 @@
 <template>
   <div>
-    <img src="./assets/logo.png">
-    大大大滴滴答答多app
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive"></router-view>
+    </keep-alive>
+    <router-view v-if="!$route.meta.keepAlive"></router-view>
   </div>
 </template>
 
