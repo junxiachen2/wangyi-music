@@ -3,7 +3,7 @@
  */
 import axios from 'axios';
 
-import {PersonalizedResource,PrivatecontentResource} from './resource'
+import {PersonalizedResource,PrivatecontentResource,NewSongResource} from './resource'
 
 export default{
   getPersonalized(){
@@ -11,5 +11,8 @@ export default{
   },
   getPrivatecontent(){
     return axios.get(PrivatecontentResource)
+  },
+  getNewSong(){
+    return axios.get(NewSongResource);
   }
 }

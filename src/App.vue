@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import topHeader from './components/header/header.vue'
+  import topHeader from './components/topHeader/topHeader.vue'
   import { mapGetters } from 'vuex'
   export default {
     name: 'app',

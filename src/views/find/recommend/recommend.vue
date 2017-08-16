@@ -19,6 +19,7 @@
     </div>
     <div class="recommend-mv-area">
       <h1 class="title">最新音乐</h1>
+      <v-new-song-list :newSong="newSong"></v-new-song-list>
     </div>
     <div class="recommend-mv-area">
       <h1 class="title">推荐MV</h1>
@@ -34,6 +35,7 @@
   import {swiper, swiperSlide} from 'vue-awesome-swiper';
   import vPlayLists from '../../../components/list/find/recommend/playLists.vue';
   import vActivitysList from '../../../components/list/find/recommend/activitysList.vue';
+import vNewSongList from '../../../components/list/find/recommend/newSong.vue';
 
   const img_list = ['/static/banner/banner1.jpg', '/static/banner/banner2.jpg', '/static/banner/banner3.jpg', '/static/banner/banner4.jpg'];
   export default{
@@ -47,18 +49,21 @@
         },
         slide_list: img_list,
         playlists: [],
-        activitys: []
+        activitys: [],
+        newSong: []
       }
     },
     components: {
       swiper,
       swiperSlide,
       vPlayLists,
-      vActivitysList
+      vActivitysList,
+      vNewSongList
     },
     mounted(){
       this.getPersonalizedResource();
       this.getPrivatecontentResource();
+      this.getNewSongResource();
     },
     methods: {
       getPersonalizedResource(){
@@ -70,6 +75,11 @@
         api.getPrivatecontent().then((response) => {
           this.activitys = response.data.result;
       })
+      },
+      getNewSongResource(){
+        api.getNewSong().then((response) => {
+          this.newSong = response.data.result.slice(0,6);
+        })
       }
     }
   }
