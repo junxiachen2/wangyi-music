@@ -2,21 +2,21 @@
  * Created by junxiachen on 17/7/28.
  */
 const state = {
-  show_side_menu: false,
-  show_loading: false
+  isShowAsideMenu: false,
+  loadingShow: false
 };
 
 const getters = {
-  showAsideMenu: state => state.show_side_menu,
-  showLoading: state => state.show_loading
-}
+  isShowAsideMenu: state => state.isShowAsideMenu,
+  loadingShow: state => state.loadingShow
+};
 
 const mutations = {
   showAsideMenu(state, flag){
-    state.show_side_menu = flag;
+    state.isShowAsideMenu = flag;
   },
   updateLoading(state, data){
-    state.show_loading = data
+    state.loadingShow = data;
   }
 };
 

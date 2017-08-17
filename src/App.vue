@@ -1,6 +1,7 @@
 <template>
   <div>
     <top-header></top-header>
+    <loading :show="loadingShow"></loading>
     <keep-alive>
       <router-view v-if="$route.meta.keepAlive"></router-view>
     </keep-alive>
@@ -9,19 +10,19 @@
 </template>
 
 <script>
-  import topHeader from './components/topHeader/topHeader.vue'
+  import topHeader from './components/topHeader/topHeader.vue';
+  import loading from './components/loading/overall-loading.vue';
   import { mapGetters } from 'vuex'
   export default {
     name: 'app',
     components:{
-      topHeader
+      topHeader,
+      loading
     },
     computed: {
-//      ...mapGetters([
-//        'songList',
-//        'showDetail',
-//        'loadingShow'
-//      ])
+      ...mapGetters([
+        'loadingShow'
+      ])
     }
   }
 </script>
