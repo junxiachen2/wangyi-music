@@ -1,27 +1,28 @@
 <template>
-    <div>
-        <header-component/>
-        <div>this is template body</div>
-        <other-component/>
-    </div>
+  <ul class="MV-area">
+    <li style="flex: 0 0 49.5%;"
+        class="mv-card-find"
+        v-for="(data,index) in MVs"
+        :key="index">
+      <img v-lazy="data.picUrl+ 'param=400y200'" lazy="loading">
+      <h2>{{data.name}}</h2>
+    </li>
+  </ul>
 </template>
-<style>
-    body{
-        background-color:#ff0000;
-    }
-</style>
+
 <script>
-    import HeaderComponent from './components/header.vue'
-    import OtherComponent from './components/other.vue'
-    export default{
-        data(){
-            return{
-                msg:'hello vue'
-            }
-        },
-        components:{
-            'other-component':OtherComponent,
-            HeaderComponent,
-        }
+  export default {
+    name:'v-mv-lists',
+    props:{
+      MVs:{
+        type:Array,
+        default:[]
+      }
     }
+  }
 </script>
+<style scoped>
+  h2 {
+    -webkit-box-orient: vertical;
+  }
+</style>

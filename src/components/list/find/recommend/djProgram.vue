@@ -1,27 +1,27 @@
 <template>
-    <div>
-        <header-component/>
-        <div>this is template body</div>
-        <other-component/>
-    </div>
+  <ul class="djProgram-area">
+    <li class="djProgram-card-find"
+        v-for="(data,index) in djProgram"
+        :key="index">
+      <img v-lazy="data.picUrl+ 'param=200y200'" lazy="loading">
+      <h2>{{data.name}}</h2>
+    </li>
+  </ul>
 </template>
-<style>
-    body{
-        background-color:#ff0000;
-    }
-</style>
+
 <script>
-    import HeaderComponent from './components/header.vue'
-    import OtherComponent from './components/other.vue'
-    export default{
-        data(){
-            return{
-                msg:'hello vue'
-            }
-        },
-        components:{
-            'other-component':OtherComponent,
-            HeaderComponent,
-        }
+  export default {
+    name: 'v-dj-program-lists',
+    props:{
+      djProgram:{
+        type:Array,
+        default:[]
+      }
     }
+  }
 </script>
+<style>
+  h2 {
+    -webkit-box-orient: vertical;
+  }
+</style>

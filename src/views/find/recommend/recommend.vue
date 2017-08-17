@@ -23,9 +23,11 @@
     </div>
     <div class="recommend-mv-area">
       <h1 class="title">推荐MV</h1>
+      <v-mv-list :MVs="MVs"></v-mv-list>
     </div>
     <div class="recommend-mv-area">
       <h1 class="title">主播电台</h1>
+      <v-dj-program-list :djProgram="djProgram"></v-dj-program-list>
     </div>
   </div>
 </template>
@@ -35,7 +37,9 @@
   import {swiper, swiperSlide} from 'vue-awesome-swiper';
   import vPlayLists from '../../../components/list/find/recommend/playLists.vue';
   import vActivitysList from '../../../components/list/find/recommend/activitysList.vue';
-import vNewSongList from '../../../components/list/find/recommend/newSong.vue';
+  import vNewSongList from '../../../components/list/find/recommend/newSong.vue';
+  import vMvList from '../../../components/list/find/recommend/mvList.vue';
+  import vDjProgramList from '../../../components/list/find/recommend/djProgram.vue';
 
   const img_list = ['/static/banner/banner1.jpg', '/static/banner/banner2.jpg', '/static/banner/banner3.jpg', '/static/banner/banner4.jpg'];
   export default{
@@ -50,7 +54,9 @@ import vNewSongList from '../../../components/list/find/recommend/newSong.vue';
         slide_list: img_list,
         playlists: [],
         activitys: [],
-        newSong: []
+        newSong: [],
+        MVs: [],
+        djProgram: []
       }
     },
     components: {
@@ -58,12 +64,16 @@ import vNewSongList from '../../../components/list/find/recommend/newSong.vue';
       swiperSlide,
       vPlayLists,
       vActivitysList,
-      vNewSongList
+      vNewSongList,
+      vMvList,
+      vDjProgramList
     },
     mounted(){
       this.getPersonalizedResource();
       this.getPrivatecontentResource();
       this.getNewSongResource();
+      this.getPersonalizedMvResource();
+      this.getDjProgramResource();
     },
     methods: {
       getPersonalizedResource(){
@@ -78,8 +88,18 @@ import vNewSongList from '../../../components/list/find/recommend/newSong.vue';
       },
       getNewSongResource(){
         api.getNewSong().then((response) => {
-          this.newSong = response.data.result.slice(0,6);
-        })
+          this.newSong = response.data.result.slice(0, 6);
+      })
+      },
+      getPersonalizedMvResource(){
+        api.getPersonalizedMv().then((response) => {
+          this.MVs = response.data.result;
+      })
+      },
+      getDjProgramResource() {
+        api.getDjProgram().then((response) => {
+          this.djProgram = response.data.result.slice(0, 6);
+      })
       }
     }
   }
