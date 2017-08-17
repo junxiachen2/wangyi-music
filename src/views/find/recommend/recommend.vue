@@ -67,8 +67,10 @@ import vNewSongList from '../../../components/list/find/recommend/newSong.vue';
     },
     methods: {
       getPersonalizedResource(){
+        this.$store.commit('updateLoading', true);
         api.getPersonalized().then((response) => {
           this.playlists = response.data.result;
+          this.$store.commit('updateLoading', false);
       })
       },
       getPrivatecontentResource(){
