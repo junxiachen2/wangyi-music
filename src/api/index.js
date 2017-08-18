@@ -8,7 +8,8 @@ import {
   PrivatecontentResource,
   NewSongResource,
   PersonalizedMvResource,
-  DjProgramResource
+  DjProgramResource,
+  TopPlaylistResource
 } from './resource'
 
 export default{
@@ -26,5 +27,19 @@ export default{
   },
   getDjProgram(){
     return axios.get(DjProgramResource);
+  },
+  /**
+   * @param order new: 最新, hot: 最热
+   * @param limit 每次请求返回列表条数,默认 50
+   * @param offset 偏移量,默认 0
+   */
+  getTopPlaylistResource (order, limit, offset){
+    return axios.get(TopPlaylistResource, {
+      params: {
+        order: order || 'hot',
+        limit: limit || 50,
+        offset: offset || 0
+      }
+    });
   }
 }

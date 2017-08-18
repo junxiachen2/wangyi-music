@@ -23,7 +23,7 @@
         </swiper-item>
         <swiper-item :key="2">
           <div class="tab-swiper vux-center">
-          2222222
+            <v-play-lists></v-play-lists>
           </div>
         </swiper-item>
         <swiper-item :key="3">
@@ -39,6 +39,7 @@
   import {Tab, TabItem} from 'vux/src/components/Tab'
   import {Swiper, SwiperItem} from 'vux/src/components/Swiper'
   import vRecommend from './recommend/recommend';
+  import vPlayLists from './playLists/playLists';
 
   const list = () => ['个性推荐', '歌单', '排行榜'];
   export default{
@@ -48,7 +49,8 @@
       TabItem,
       Swiper,
       SwiperItem,
-      vRecommend
+      vRecommend,
+      vPlayLists
     },
     data(){
       return {
